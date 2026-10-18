@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "desktop-agent"
+version = "0.1.0b1"
+description = "A tiny, constrained GUI agent for simple office work on Windows"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "OreKouNeko" }]
+dependencies = [
+    "comtypes>=1.2",
+    "uiautomation>=2.0",
+    "psutil>=5.9",
+]
+
+[project.optional-dependencies]
+office = ["python-docx", "openpyxl", "python-pptx"]
+
+[project.scripts]
+desktop-agent = "desktop_agent.ui.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
